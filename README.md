@@ -57,8 +57,6 @@ cd $DEPS
 
 mv jellyfish-2.2.6.tar.gz $TAR
 
-module unload zlib/1.2.8--gnu--4.8.3
-
 echo -e "================== Quast 4.5 ===================\n"
 echo -e "I'm going to install the following software: Quast"
 
