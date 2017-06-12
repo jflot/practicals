@@ -3,6 +3,8 @@ A set of practicals for teaching genomics
 
 Use the `cat > build_deps.sh` command to create a file called _build_deps.sh_ and open it for writing. Then copy/paste the following script into that file:
 ```#! /bin/bash
+module load gnu/4.8.3
+module load zlib
 
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
@@ -84,20 +86,21 @@ cd $DEPS
 
 mv Bloocoo.tar.gz $TAR
 
-echo -e "================== Bgreat ===================\n"
-echo -e "I'm going to install the following software: Bgreat"
-#importing git to import the repo
-module load autoload git
-
-git clone https://github.com/Malfoy/BGREAT.git
-
-cd BGREAT
-
-make
-
-ln -s $(pwd)/bgreat $SLBIN/bgreat
-
-cd $DEPS
+# echo -e "================== Bgreat ===================\n"
+# echo -e "I'm going to install the following software: Bgreat"
+# #importing git to import the repo
+# module load autoload git
+#
+# git clone https://github.com/Malfoy/BGREAT.git
+#
+# cd BGREAT
+#
+# make
+# 
+# ln -s $(pwd)/bgreat $SLBIN/bgreat
+# 
+# cd $DEPS
+#
 
 echo -e "================== Bcalm ===================\n"
 echo -e "I'm going to install the following software: Bcalm"
@@ -126,8 +129,11 @@ make install
 ln -s $(pwd)/grace/bin/xmgrace $SLBIN/xmgrace
 cd $DEPS
 echo -e "================== FINISH! ===================\n"
+mkdir ~/bin
+cd slbin
+cp * ~/bin
 
-echo -e "Now you have al the dipendecies to run on PICO"
+echo -e "Now you have all the dependencies to run on PICO"
 ```
 
 Press _Ctr^D_ to close the file and record the changes, then `chmod 777 build_deps.sh` to make it executable. Finally, launch the installation script using `./build_deps.sh`.
