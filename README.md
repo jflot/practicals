@@ -11,7 +11,7 @@ module load idba-ud
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
 echo -e "\n This script will install the dependencies necessary for the
-metagenomic pipeline.\n"
+assembly practical.\n"
 
 echo -e "PLEASE NOTE THAT THIS SCRIPT HAS BEEN WRITTEN IN APRIL 2017\n"
 echo -e "To install more recent version, pleas edit the script\n"
@@ -19,7 +19,7 @@ echo -e "To install more recent version, pleas edit the script\n"
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
 
 #================== SETTIN ENV  ===================
-echo -e "\n Creating a deps folder in the working directory ($(pwd))"
+echo -e "\n Creating a deps (dependencies) folder in the working directory ($(pwd))"
 
 wd=$(pwd)
 
@@ -41,7 +41,7 @@ echo $TAR
 mkdir -p $TAR
 
 echo -e "================== Jellyfish 2.2.6 ===================\n"
-echo -e "I'm going to install the following software: Jellyfish"
+echo -e "Installing the following software: Jellyfish"
 module load zlib/1.2.8--gnu--4.8.3
 wget -O jellyfish-2.2.6.tar.gz https://github.com/gmarcais/Jellyfish/releases/download/v2.2.6/jellyfish-2.2.6.tar.gz
 
@@ -58,7 +58,7 @@ cd $DEPS
 mv jellyfish-2.2.6.tar.gz $TAR
 
 echo -e "================== Quast 4.5 ===================\n"
-echo -e "I'm going to install the following software: Quast"
+echo -e "Installing the following software: Quast"
 
 wget -O quast.tar.gz https://github.com/ablab/quast/archive/quast_4.5.tar.gz
 tar -zxvf quast.tar.gz
@@ -73,7 +73,7 @@ cd $DEPS
 mv quast.tar.gz $TAR
 
 echo -e "================== Bloocoo ===================\n"
-echo -e "I'm going to install the following software: Bloocoo"
+echo -e "Installing the following software: Bloocoo"
 
 wget -O Bloocoo.tar.gz https://github.com/GATB/bloocoo/releases/download/v1.0.7/Bloocoo-v1.0.7-bin-Linux.tar.gz
 tar -zxvf Bloocoo.tar.gz
@@ -87,7 +87,7 @@ cd $DEPS
 mv Bloocoo.tar.gz $TAR
 
 echo -e "================== Bcalm ===================\n"
-echo -e "I'm going to install the following software: Bcalm"
+echo -e "Installing the following software: Bcalm"
 
 git clone https://github.com/Malfoy/BCALM.git
 cd BCALM
@@ -99,7 +99,7 @@ ln -s $(pwd)/bcalm $SLBIN/bcalm
 cd $DEPS
 
 echo -e  "================== xmgrace ===================\n"
-echo -e "I'm going to install the following software: xmgrace"
+echo -e "Installing the following software: xmgrace"
 wget ftp://ftp.fu-berlin.de/unix/graphics/grace/src/grace-latest.tar.gz
 tar -zxvf grace-latest.tar.gz
 
@@ -119,4 +119,4 @@ export PATH=$CINECA_SCRATCH/deps/slbin:$PATH
 echo -e "Now you have all the dependencies to run on PICO"
 ```
 
-Press _Ctr^D_ to close the file and record the changes, then `chmod 777 build_deps.sh` to make it executable. Finally, launch the installation script using `./build_deps.sh`.
+Press _Ctr^D_ to close the file and record the changes, then launch the installation script using `source build_deps.sh`.
