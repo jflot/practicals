@@ -3,9 +3,9 @@ A set of practicals for teaching genomics
 
 Use the `cat > build_deps.sh` command to create a file called _build_deps.sh_ and open it for writing. Then copy/paste the following script into that file:
 ```#! /bin/bash
-module load gnu/4.8.3
-module load zlib
-module load autoload git
+module load profile/advanced
+module load autoload zlib
+module load git
 module load idba-ud
 
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
