@@ -5,6 +5,8 @@ Use the `cat > build_deps.sh` command to create a file called _build_deps.sh_ an
 ```#! /bin/bash
 module load gnu/4.8.3
 module load zlib
+module load autoload git
+module load idba-ud
 
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
@@ -86,22 +88,6 @@ cd $DEPS
 
 mv Bloocoo.tar.gz $TAR
 
-# echo -e "================== Bgreat ===================\n"
-# echo -e "I'm going to install the following software: Bgreat"
-# #importing git to import the repo
-# module load autoload git
-#
-# git clone https://github.com/Malfoy/BGREAT.git
-#
-# cd BGREAT
-#
-# make
-# 
-# ln -s $(pwd)/bgreat $SLBIN/bgreat
-# 
-# cd $DEPS
-#
-
 echo -e "================== Bcalm ===================\n"
 echo -e "I'm going to install the following software: Bcalm"
 
@@ -129,9 +115,8 @@ make install
 ln -s $(pwd)/grace/bin/xmgrace $SLBIN/xmgrace
 cd $DEPS
 echo -e "================== FINISH! ===================\n"
-mkdir ~/bin
-cd slbin
-cp * ~/bin
+
+export PATH=$CINECA_SCRATCH/deps/slbin:$PATH
 
 echo -e "Now you have all the dependencies to run on PICO"
 ```
