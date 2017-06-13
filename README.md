@@ -13,8 +13,10 @@ In your terminal window, type `xeyes`: you should see some rolling eyes appearin
 If your operating system is Linux, then you have already a X11 server for sure. If your operating system is OSX, you should install one (I use XQuartz, which is straightforward to install: just download the DMG archive from https://www.xquartz.org/). If your operating system is Windows, you can install Xming (https://sourceforge.net/projects/xming/files/Xming/6.9.0.31/Xming-6-9-0-31-setup.exe/download) or Cygwin/X (https://x.cygwin.com/); if you install Cygwin and select the proper package during the setup step, then Cygwin/X gets installed at the same time (if you installed Cygwin already but forgot to include Cygwin/X, you can just run the Cygwin setup program again and add Cygwin/X to your selected packages).
 
 ### Launching the X11 server
+Here it is simply a matter of clicking on the X11 server icon (either XMing or Cygwin/X) so that it starts.
 
 ### Setting the $DISPLAY variable
+For that you need to enter the following command `export DISPLAY=:0` in your terminal. If you want this to be done automatically you just need to add this line to the .bashrc file in your home directory (or create a .bashrc file containing this line if there is none yet): `echo 'export DISPLAY=:0' >> .bashrc`)
 
 ## Logging into the cluster environment
 Log in to your account on the CINECA cluster by typing `ssh -X a08trb##@login.pico.cineca.it` in your terminal, where ## is the account number you were attributed (if `-X`does not work, try with `-Y` which is more secure). The `-X` in the `ssh` command is important to allow forwarding graphical instructions from the CINECA cluster to your computer, where it will be displayed: to test whether it works, try typing `xeyes` in the command-line environment.
