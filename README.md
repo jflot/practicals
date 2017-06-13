@@ -3,7 +3,7 @@ A set of practicals for teaching genomics during the 2017 ICME course.
 
 ## Preparing the cluster environment
 
-Log in to your account on the CINECA cluster using `ssh -X a08trb##@login.pico.cineca.it`, where ## is the account number you were attributed.
+Log in to your account on the CINECA cluster using `ssh -X a08trb##@login.pico.cineca.it`, where ## is the account number you were attributed (if `-X`does not work, try with `-Y` which is more secure).
 
 You are now at the root of your home account (you can see your current path using `pwd`, and list the content of your current directory using `ls` ou `ls -rtclh` for more details).
 
