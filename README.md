@@ -4,10 +4,10 @@ A set of practicals for teaching genomics during the 2017 ICME course.
 For discussion of the various technical problems that will certainly arise during the practical: https://etherpad.wikimedia.org/p/8ICME.
 
 ## Opening a terminal (= command-line environment)
-If your operating system is Linux or OSX, you just need to click on the Terminal icon (for OSX users, the Terminal program is hidden in Applications/Utilities). If your operating system is Windows, your best choice is to install Cygwin (https://www.cygwin.com/). Cygwin is a wonderful tool that turns a Windows computer into a real bioinformatic platform, by giving you a proper terminal in which you can use the exact same commands as on a Linux computer.
+If your operating system is Linux or OSX, you just need to click on the Terminal icon (for OSX users, the Terminal program is hidden in Applications/Utilities). If your operating system is Windows, you should install Cygwin (https://www.cygwin.com/). Cygwin is a wonderful tool that turns a Windows computer into a real bioinformatic platform, by giving you a proper terminal in which you can use the exact same commands as on a Linux computer. If your operating system is Windows 10, you have actually the choice between installing Cygwin or installing the new Windows Subsystem for Linux (WSL): https://msdn.microsoft.com/fr-fr/commandline/wsl/about; here are the installation instructions: https://msdn.microsoft.com/en-us/commandline/wsl/install_guide. In both cases, you will end up with a Linux-like terminal that you should open to log in the cluster environment.
 
 ## Logging into the cluster environment
-Log in to your account on the CINECA cluster using `ssh -X a08trb##@login.pico.cineca.it`, where ## is the account number you were attributed (if `-X`does not work, try with `-Y` which is more secure). The `-X` in the `ssh` command is important to allow forwarding graphical information to your terminal: to test whether it works, try typing `xeyes` in the command-line environment: you should see some rolling eyes appearing in a small window on your screen (you can then close this window by clicking on the cross in the corner of the window).
+Log in to your account on the CINECA cluster by typing `ssh -X a08trb##@login.pico.cineca.it` in your terminal, where ## is the account number you were attributed (if `-X`does not work, try with `-Y` which is more secure). The `-X` in the `ssh` command is important to allow forwarding graphical information to your terminal: to test whether it works, try typing `xeyes` in the command-line environment: you should see some rolling eyes appearing in a small window on your screen (you can then close this window by clicking on the cross in the corner of the window).
 
 ## Navigating your home and scratch directories
 You are now at the root of your home account (you can see your current path using `pwd`, and list the content of your current directory using `ls` ou `ls -rtclh` for more details).
@@ -144,5 +144,4 @@ Once it is done, you can try launching the various programs we just installed by
 
 ## Starting an interactive session on a cluster node
 
-If everybody works on the login node, it may slow down the sytem.
-To avoid this, start an interactive session on a cluster nodd: `qsub -I -l select=1 -X -A train_metage17 -q R712694  -W group_list=train_metage17` (if it does not work, try without the queue name: `qsub -I -l select=1 -X -A train_metage17qsub -I -l select=1`). Check that X11 forwarding works also in the interactive session using `xeyes`).
+If everybody works on the login node, it may slow down the sytem. To avoid this, start an interactive session on a cluster nodd: `qsub -I -l select=1 -X -A train_metage17 -q R712694  -W group_list=train_metage17` (if it does not work, try without the queue name: `qsub -I -l select=1 -X -A train_metage17qsub -I -l select=1`). Check that X11 forwarding works also in the interactive session using `xeyes`.
