@@ -1,4 +1,4 @@
-# practicals
+# Practicals
 A set of practicals for teaching genomics during the 2017 ICME course.
 
 ## Preparing the cluster environment
