@@ -9,6 +9,13 @@ If your operating system is Linux or OSX, you just need to click on the Terminal
 ## Making sure you have a working X11 server in your computer
 In your terminal window, type `xeyes`: you should see some rolling eyes appearing in a small window on your screen (you can then close this window by clicking on the cross in the corner of the window). If it does not work, there can be three problems (or a combination of them): you may have no installed X11 server on your computer; your installed X11 server may require to be started manually before typing `xeyes`; and/or you may need to set the $DISPLAY variable in your command-line environment.
 
+### Installing a X11 server
+If your operating system is Linux, then you have already a X11 server for sure. If your operating system is OSX, you should install one (I use XQuartz, which is straightforward to install: just download the DMG archive from https://www.xquartz.org/). If your operating system is Windows, you can install Xming (https://sourceforge.net/projects/xming/files/Xming/6.9.0.31/Xming-6-9-0-31-setup.exe/download) or Cygwin/X (https://x.cygwin.com/); if you install Cygwin and select the proper package during the setup step, then Cygwin/X gets installed at the same time (if you installed Cygwin already but forgot to include Cygwin/X, you can just run the Cygwin setup program again and add Cygwin/X to your selected packages).
+
+### Launching the X11 server
+
+### Setting the $DISPLAY variable
+
 ## Logging into the cluster environment
 Log in to your account on the CINECA cluster by typing `ssh -X a08trb##@login.pico.cineca.it` in your terminal, where ## is the account number you were attributed (if `-X`does not work, try with `-Y` which is more secure). The `-X` in the `ssh` command is important to allow forwarding graphical instructions from the CINECA cluster to your computer, where it will be displayed: to test whether it works, try typing `xeyes` in the command-line environment.
 
