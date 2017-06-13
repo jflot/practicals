@@ -1,5 +1,17 @@
 # practicals
-A set of practicals for teaching genomics
+A set of practicals for teaching genomics during the 2017 ICME course.
+
+## Preparing the cluster environment
+
+Log in to your account on the CINECA cluster using `ssh -X a08trb##@login.pico.cineca.it`, where ## is the account number you were attributed.
+
+You are now at the root of your home account (you can see your current path using `pwd`, and list the content of your current directory using `ls` ou `ls -rtclh` for more details).
+
+The `-X` in the `ssh` command is important to allow forwarding graphical information to your terminal: to test whether it works, try `xeyes` once in your account. When you type `xeyes` or any other command, the system automatically looks for the corresponding program in the folders listed in your $PATH variable (to see the content of this variable, try `echo $PATH`). To copy a file, use the command `cp`: `cp /usr/bin/xeyes ~/bin/` will copy the program xeyes into the bin (named because it will contain binaries, i.e., programs) of your home directory. Since this directory is part of your $PATH, any program put into this folder will be launchable from anywhere in your system, just by typing its name (provided its execution is authorized of course; in case it is not, you can change its permissions using `chmod 777` followed by the name of the file or `chmod a+x` followed by the name of the file).
+
+You will be working in you scratch directory and not in your home directory. The path to your scratch directory is stored in the variable $CINECA_SCRATCH: to see it, use the command `echo $CINECA_SCRATCH`; to go there, use `cd $CINECA_SCRATCH`.
+
+Start an interactive session: `qsub -I -l select=1 -X -A train_metage17 -q R712694` (if it does not work, try without the queue name: `qsub -I -l select=1 -X -A train_metage17qsub -I -l select=1`). Check that X11 forwarding works also in the interactive session using `xeyes`).
 
 Use the `cat > build_deps.sh` command to create a file called _build_deps.sh_ and open it for writing. Then copy/paste the following script into that file:
 ```#! /bin/bash
