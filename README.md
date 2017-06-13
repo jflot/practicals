@@ -11,8 +11,6 @@ The `-X` in the `ssh` command is important to allow forwarding graphical informa
 
 You will be working in you scratch directory and not in your home directory. The path to your scratch directory is stored in the variable $CINECA_SCRATCH: to see it, use the command `echo $CINECA_SCRATCH`; to go there, use `cd $CINECA_SCRATCH`.
 
-Start an interactive session: `qsub -I -l select=1 -X -A train_metage17 -q R712694` (if it does not work, try without the queue name: `qsub -I -l select=1 -X -A train_metage17qsub -I -l select=1`). Check that X11 forwarding works also in the interactive session using `xeyes`).
-
 Use the `cat > build_deps.sh` command to create a file called _build_deps.sh_ and open it for writing. Then copy/paste the following script into that file:
 ```#! /bin/bash
 module load profile/advanced
@@ -126,7 +124,12 @@ ln -s $(pwd)/grace/bin/xmgrace $SLBIN/xmgrace
 cd $DEPS
 echo -e "================== FINISH! ===================\n"
 
+export PATH=$CINECA_SCRATCH/deps/slbin:$PATH
+
 echo -e "Now you have all the dependencies to run on PICO"
 ```
 
 Press _Ctr^D_ to close the file and record the changes, then launch the installation script using `source build_deps.sh`.
+
+
+Start an interactive session: `qsub -I -l select=1 -X -A train_metage17 -q R712694` (if it does not work, try without the queue name: `qsub -I -l select=1 -X -A train_metage17qsub -I -l select=1`). Check that X11 forwarding works also in the interactive session using `xeyes`).
