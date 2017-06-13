@@ -16,7 +16,10 @@ When you type `xeyes` or any other command, the system automatically looks for t
 
 You will be working in your scratch directory and not in your home directory. The path to your scratch directory is stored in the variable $CINECA_SCRATCH: to see it, use the command `echo $CINECA_SCRATCH`; to go there, use `cd $CINECA_SCRATCH` (`cd` simply means "change directory").
 
+
+## Installing the programs required for the practical
 Another version useful command is `cat` (which means "concatenate"). You can use it to display the content of a file (`cat [name of the file to display]`) or of two files one after the one (`cat [filename1] [filename2]`), as well as to concatenate the contents of two files and save it into a third file (`cat [filename1] [filename2] > [new file]`).
+
 Use the `cat > build_deps.sh` command to create a file called _build_deps.sh_ and open it for writing. Then copy/paste the following script into that file:
 ```#! /bin/bash
 module load profile/advanced
@@ -137,5 +140,9 @@ echo -e "Now you have all the dependencies to run on PICO"
 
 Press Ctr^D to close the file and record the changes, then launch the installation script using `source build_deps.sh`.
 
+Once it is done, you can try launching the various programs we just installed by typing their names in the command line: `bcalm`, `bcool`, `jellyfish`, `idba_ud`, `xmgrace`. If you get any error message, let us know.
 
-Start an interactive session: `qsub -I -l select=1 -X -A train_metage17 -q R712694  -W group_list=train_metage17` (if it does not work, try without the queue name: `qsub -I -l select=1 -X -A train_metage17qsub -I -l select=1`). Check that X11 forwarding works also in the interactive session using `xeyes`).
+## Starting an interactive session on a cluster node
+
+If everybody works on the login node, it may slow down the sytem.
+To avoid this, start an interactive session on a cluster nodd: `qsub -I -l select=1 -X -A train_metage17 -q R712694  -W group_list=train_metage17` (if it does not work, try without the queue name: `qsub -I -l select=1 -X -A train_metage17qsub -I -l select=1`). Check that X11 forwarding works also in the interactive session using `xeyes`).
