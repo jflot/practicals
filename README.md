@@ -132,4 +132,4 @@ echo -e "Now you have all the dependencies to run on PICO"
 Press _Ctr^D_ to close the file and record the changes, then launch the installation script using `source build_deps.sh`.
 
 
-Start an interactive session: `qsub -I -l select=1 -X -A train_metage17 -q R712694` (if it does not work, try without the queue name: `qsub -I -l select=1 -X -A train_metage17qsub -I -l select=1`). Check that X11 forwarding works also in the interactive session using `xeyes`).
+Start an interactive session: `qsub -I -l select=1 -X -A train_metage17 -q R712694  -W group_list=train_metage17` (if it does not work, try without the queue name: `qsub -I -l select=1 -X -A train_metage17qsub -I -l select=1`). Check that X11 forwarding works also in the interactive session using `xeyes`).
