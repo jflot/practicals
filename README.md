@@ -126,8 +126,6 @@ ln -s $(pwd)/grace/bin/xmgrace $SLBIN/xmgrace
 cd $DEPS
 echo -e "================== FINISH! ===================\n"
 
-export PATH=$CINECA_SCRATCH/deps/slbin:$PATH
-
 echo -e "Now you have all the dependencies to run on PICO"
 ```
 
