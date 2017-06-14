@@ -166,7 +166,8 @@ Download the sequence of E. coli strain Sakai: `wget http://seqphase.mpg.de/Saka
 
 ## Simulating reads
 In this first analysis, we will analyse the effect of read coverage on the quality of a genome assembly. To do so, let's start by simulating read sets of know coverage using the `sim_reads` tool (part of the IDBA_UD package):
-```sim_reads --paired --depth 1 toy.fasta  toyD1.fasta
+```
+sim_reads --paired --depth 1 toy.fasta  toyD1.fasta
 sim_reads --paired --depth 2 toy.fasta  toyD2.fasta
 sim_reads --paired --depth 3 toy.fasta  toyD3.fasta
 sim_reads --paired --depth 4 toy.fasta  toyD4.fasta
@@ -186,7 +187,8 @@ sim_reads --paired --depth 60 toy.fasta  toyD60.fasta
 sim_reads --paired --depth 70 toy.fasta  toyD70.fasta
 sim_reads --paired --depth 80 toy.fasta  toyD80.fasta
 sim_reads --paired --depth 90 toy.fasta  toyD90.fasta
-sim_reads --paired --depth 100 toy.fasta  toyD100.fasta```
+sim_reads --paired --depth 100 toy.fasta toyD100.fasta
+```
 
 
 
