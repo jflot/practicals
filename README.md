@@ -148,7 +148,7 @@ cd $DEPS
 echo -e "================== FINISH! ===================\n"
 
 echo 'export PATH=$CINECA_SCRATCH/deps/slbin:$PATH' > ~/.bashrc
-source ./bashrc
+source ~/.bashrc
 
 echo -e "Now you have all the dependencies to run on PICO"
 
