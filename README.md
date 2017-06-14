@@ -189,9 +189,15 @@ sim_reads --paired --depth 80 toy.fasta  toyD80.fasta
 sim_reads --paired --depth 90 toy.fasta  toyD90.fasta
 sim_reads --paired --depth 100 toy.fasta toyD100.fasta
 ```
-(we could also have used a shorter but more complex command: `for i in 1 2 3 4 5 6 7 8 9 10 15 20 25 30 40 50 60 70 80 90 100; do sim_reads --paired --depth $i toy.fasta toyD$i.fasta; done`, which gives exactly the same result)
+We could also have used the shorter but more complex command: `for i in 1 2 3 4 5 6 7 8 9 10 15 20 25 30 40 50 60 70 80 90 100; do sim_reads --paired --depth $i toy.fasta toyD$i.fasta; done`, which gives exactly the same result.
 
-Now, let's assemble each dataset using IDBA_UD: `for i in 1 2 3 4 5 6 7 8 9 10 15 20 25 30 40 50 60 70 80 90 100; do idba_ud -r toyD$i.fasta --no_correct -o toyD$i; done`
+Now, let's assemble each dataset using IDBA_UD: `for i in 1 2 3 4 5 6 7 8 9 10 15 20 25 30 40 50 60 70 80 90 100; do echo $i; idba_ud -r toyD$i.fasta --no_correct -o toyD$i; done`.
+
+To analyse the result, let's run raw_N50 on each final contig set: `for i in 1 2 3 4 5 6 7 8 9 10 15 20 25 30 40 50 60 70 80 90 100; do raw_n50 toyD$i/contig.fa;done > coverage_effect.txt`
+
+Let us plot the result using `xmgrace`. First we need to make a 2-column file. The first column is obtained easily using `for i in 1 2 3 4 5 6 7 8 9 10 15 20 25 30 40 50 60 70 80 90 100; do echo $i; done > coverage.col`. The second colum can be extracted from the coverage_effect.txt file using the command awk: for instance, `awk '{print $3}' coverage_effect.txt > nbcontigs.col`. You can then combine the two columns and plot the result using `paste coverage.col nb contigs.com |xmgrace -`. What do you observe?
+
+
 
 
 
