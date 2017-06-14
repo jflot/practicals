@@ -196,7 +196,15 @@ Now, let's assemble each dataset using IDBA_UD: `for i in 1 2 3 4 5 6 7 8 9 10 1
 To analyse the result, let's run raw_N50 on each final contig set: `for i in 1 2 3 4 5 6 7 8 9 10 15 20 25 30 40 50 60 70 80 90 100; do raw_n50 toyD$i/contig.fa;done > coverage_effect.txt`
 
 Let us plot the result using `xmgrace`. First we need to make a 2-column file. The first column is obtained easily using `for i in 1 2 3 4 5 6 7 8 9 10 15 20 25 30 40 50 60 70 80 90 100; do echo $i; done > coverage.col`. The second colum can be extracted from the coverage_effect.txt file using the command awk: for instance, `awk '{print $2}' coverage_effect.txt > nbcontigs.col`. You can then combine the two columns and plot the result using `paste coverage.col nbcontigs.col |xmgrace -`. What do you observe?
-Let's look at the N50s: `awk '{print $4}' coverage_effect.txt > n50s.col`, then `paste coverage.col n50.col |xmgrace -`. 
+Let's look at the N50s: `awk '{print $4}' coverage_effect.txt > n50s.col`, then `paste coverage.col n50.col |xmgrace -`. You can also plot other variables in the same way. Why do you think is happening, and how could we obtain a better genome assembly?
+
+## Analysing the repeat structure of a genome
+Let's use `jellyfish' to count the occurence of all the kmers in our toy sequence. For example, to generate kmer counts for k=22, you can run `jellyfish count -m 22 -c 3 -s 10000000 -o toyk22  toy.fasta` then jellyfish histo -f toyk22 > histok22.txt` (or better, `jellyfish histo -f toyk22 | awk '$2!=0'> histok22.txt` to see only the counts >0). What can you say? Try now with higher k values. Does it help you understand the problem we are facing?
+
+## Further on
+Try to craft some hypothesis of which parameter(s) you think should be improved to obtained a perfect assembly of this toy genome, then test this hypothesis using the simulation approach outlined above.
+
+
 
 
 
