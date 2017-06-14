@@ -195,7 +195,8 @@ Now, let's assemble each dataset using IDBA_UD: `for i in 1 2 3 4 5 6 7 8 9 10 1
 
 To analyse the result, let's run raw_N50 on each final contig set: `for i in 1 2 3 4 5 6 7 8 9 10 15 20 25 30 40 50 60 70 80 90 100; do raw_n50 toyD$i/contig.fa;done > coverage_effect.txt`
 
-Let us plot the result using `xmgrace`. First we need to make a 2-column file. The first column is obtained easily using `for i in 1 2 3 4 5 6 7 8 9 10 15 20 25 30 40 50 60 70 80 90 100; do echo $i; done > coverage.col`. The second colum can be extracted from the coverage_effect.txt file using the command awk: for instance, `awk '{print $3}' coverage_effect.txt > nbcontigs.col`. You can then combine the two columns and plot the result using `paste coverage.col nb contigs.com |xmgrace -`. What do you observe?
+Let us plot the result using `xmgrace`. First we need to make a 2-column file. The first column is obtained easily using `for i in 1 2 3 4 5 6 7 8 9 10 15 20 25 30 40 50 60 70 80 90 100; do echo $i; done > coverage.col`. The second colum can be extracted from the coverage_effect.txt file using the command awk: for instance, `awk '{print $2}' coverage_effect.txt > nbcontigs.col`. You can then combine the two columns and plot the result using `paste coverage.col nbcontigs.col |xmgrace -`. What do you observe?
+Let's look at the N50s: `awk '{print $4}' coverage_effect.txt > n50s.col`, then `paste coverage.col n50.col |xmgrace -`. 
 
 
 
