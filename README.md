@@ -162,6 +162,32 @@ If everybody works on the login node, it may slow down the sytem. To avoid this,
 
 ## Downloading an _Escherichia coli_ reference sequence
 Go to $CINECA_SCRATCH and create a folder called "AssemblyPractical", then enter it.
-Download the sequence of E. coli strain Sakai: `wget https://github.com/jflot/practicals/Sakai.fasta`
+Download the sequence of E. coli strain Sakai: `wget http://seqphase.mpg.de/Sakai.fasta`. It is now in your folder, and you can look at the first 10 lines of it using `head Sakai.fasta` (to look at the first 100 lines, try `head -100 Sakai.fasta`). To find out the number of lines of Sakai.fasta, try `wc -l Sakai.fasta` (`wc` means "word count", and with -l it actually counts lines rather than words). For our practical to proceed faster, we will only use the first 10% of the genome: `head -7886 Sakai.fasta > toy.fasta'.
+
+## Simulating reads
+In this first analysis, we will analyse the effect of read coverage on the quality of a genome assembly. To do so, let's start by simulating read sets of know coverage using the `sim_reads` tool (part of the IDBA_UD package):
+```sim_reads --paired --depth 1 toy.fasta  toyD1.fasta
+sim_reads --paired --depth 2 toy.fasta  toyD2.fasta
+sim_reads --paired --depth 3 toy.fasta  toyD3.fasta
+sim_reads --paired --depth 4 toy.fasta  toyD4.fasta
+sim_reads --paired --depth 5 toy.fasta  toyD5.fasta
+sim_reads --paired --depth 6 toy.fasta  toyD6.fasta
+sim_reads --paired --depth 7 toy.fasta  toyD7.fasta
+sim_reads --paired --depth 8 toy.fasta  toyD8.fasta
+sim_reads --paired --depth 9 toy.fasta  toyD9.fasta
+sim_reads --paired --depth 10 toy.fasta  toyD10.fasta
+sim_reads --paired --depth 15 toy.fasta  toyD15.fasta
+sim_reads --paired --depth 20 toy.fasta  toyD20.fasta
+sim_reads --paired --depth 25 toy.fasta  toyD25.fasta
+sim_reads --paired --depth 30 toy.fasta  toyD30.fasta
+sim_reads --paired --depth 40 toy.fasta  toyD40.fasta
+sim_reads --paired --depth 50 toy.fasta  toyD50.fasta
+sim_reads --paired --depth 60 toy.fasta  toyD60.fasta
+sim_reads --paired --depth 70 toy.fasta  toyD70.fasta
+sim_reads --paired --depth 80 toy.fasta  toyD80.fasta
+sim_reads --paired --depth 90 toy.fasta  toyD90.fasta
+sim_reads --paired --depth 100 toy.fasta  toyD100.fasta```
+
+
 
 
