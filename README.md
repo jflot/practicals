@@ -119,17 +119,6 @@ cd $DEPS
 
 mv Bloocoo.tar.gz $TAR
 
-echo -e "================== Bcalm ===================\n"
-echo -e "Installing the following software: Bcalm"
-
-git clone https://github.com/Malfoy/BCALM.git
-cd BCALM
-
-make
-
-ln -s $(pwd)/bcalm $SLBIN/bcalm
-
-cd $DEPS
 
 echo -e  "================== xmgrace ===================\n"
 echo -e "Installing the following software: xmgrace"
@@ -154,7 +143,7 @@ echo -e "Now you have all the dependencies to run on PICO"
 
 ```
 
-Once the installation is complete, you can try launching the various programs you just installed by typing their names in the command line: `bcalm`, `bcool`, `jellyfish`, `idba_ud`, `xmgrace`. If you get any error message, let us know.
+Once the installation is complete, you can try launching the various programs you just installed by typing their names in the command line: `Bloocoo`, `jellyfish`, `idba_ud`, `xmgrace`. If you get any error message, let us know.
 
 
 ## Starting an interactive session on a computing node
