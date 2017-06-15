@@ -192,6 +192,8 @@ Let's use `jellyfish` to count the occurence of all the kmers in our toy sequenc
 
 ## Further on
 Try to craft some hypothesis of which parameter(s) you think should be improved to obtained a perfect assembly of this toy genome, then test this hypothesis using the simulation approach outlined above.
+A perfect assembly does not only mean that you obtain one contig per chromosome: you should also make sure that the reconstructed contig(s) match the true sequence from which you simulated reads. A useful tool for that is `quast`: the command line you can use for that is `quast.py -R toy.fasta -o toyD100Quast toyD100/contig.fa`.
+
 
 
 
