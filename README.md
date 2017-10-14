@@ -51,7 +51,7 @@ echo -e "To install more recent versions of the various programs, please edit th
 
 echo "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n"
 
-#================== SETTIN ENV  ===================
+#================== SETTING ENV  ===================
 echo -e "\n Creating a deps (dependencies) folder in the working directory ($(pwd))"
 
 wd=$(pwd)
